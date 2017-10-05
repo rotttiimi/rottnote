@@ -24,7 +24,7 @@ if (process.env.NODE_ENV === 'production') {
 
 const dbConnStr = process.env.DB_URI;
 
-mongoose.connect(dbConnStr, function(err, db) {
+mongoose.connect(dbConnStr, { useMongoClient: true },function(err, db) {
   if (err) {
         console.log('Unable to connect to MongoDB. Logging notes to the server console...');
     } else {
